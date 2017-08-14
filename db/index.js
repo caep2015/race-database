@@ -16,6 +16,6 @@ client.connect();//connects postgress - move
 // change pool to client
 module.exports = {
   query: (text, params, callback) => {//forward to client
-    return cliet.query(text, params, callback)
+    return client.query(text, params, callback)
   }
 }
