@@ -12,4 +12,10 @@ const client = new Client({  // change values to match db
 
 client.connect();//connects postgress - move
 
-//
+//copied from https://node-postgres.com/guides/project-structure
+// change pool to client
+module.exports = {
+  query: (text, params, callback) => {//forward to client
+    return cliet.query(text, params, callback)
+  }
+}
