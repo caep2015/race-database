@@ -1,27 +1,31 @@
-DROP DATABASE IF EXIST racedb;
+DROP DATABASE IF EXISTS racedb;
 CREATE DATABASE racedb;
+--connect to this database postgres command
+-- This is database specific (Postgres). Other systems (MySQL or Oracle)
+--would be a different command to connect.
+\c racedb;
 
 CREATE TABLE runner(
-  bib_id INTEGER auto_increment PRIMARY KEY,
+  bib_id SERIAL PRIMARY KEY,
   division VARCHAR(100),
   sponsor VARCHAR(100),
   name VARCHAR(100) NOT NULL
-  FOREIGN KEY(venue_id) REFERENCES venue(venue_id)
+);
+
+
+CREATE TABLE venue(
+  venue_id SERIAL PRIMARY KEY,
+  name VARCHAR(100),
+  location VARCHAR(100)
 );
 
 CREATE TABLE race(
-  race_id INTEGER SERIAL PRIMARY KEY,
+  race_id SERIAL PRIMARY KEY,
   name VARCHAR(250) NOT NULL,
   distance FLOAT NOT NULL,
-  race_date DATETIME NOT NULL,
+  race_date timestamp NOT NULL,
   venue_id INTEGER,
   FOREIGN KEY(venue_id) REFERENCES venue(venue_id)
-);
-
-CREATE TABLE venue(
-  venue_id INTEGER SERIAL PRIMARY KEY,
-  name VARCHAR(100),
-  location VARCHAR(100)
 );
 
 CREATE TABLE result(
@@ -32,3 +36,8 @@ CREATE TABLE result(
   result_time FLOAT NOT NULL,
   PRIMARY KEY (race_id, bib_id)
 );
+
+INSERT INTO runner(division, sponsor, name)
+  VALUES('f15', 'TIY', 'Ruth Pearl'),
+        ('m17', 'TIY', 'Samuel Pearl'),
+        ('m13', 'TIY', 'Sarah Pearl');
