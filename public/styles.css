@@ -1,3 +1,12 @@
+h1, h2 {
+  text-align: center;
+}
 .wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
 
+.fields {
+  display: flex;
 }

@@ -2,11 +2,20 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Add new runner</title>
+    <title>Add runner</title>
   </head>
   <body>
-    <form>
-      <button>Add Runner</button>
+    <div class="wrapper">
+    <form action="/addNew" method="post">
+      <h1>Add New Runner:</h1>
+      <div class="fields" id="fields">
+        <input type="text" placeholder="Name" name="name">
+        <input type="text" placeholder="Division" name="division">
+        <input type="text" placeholder="Sponsor" name="sponsor">
+      </div>
+      <div class="footer">
+        <button>Add Runner</button>
+      </div>
     </form>
   </body>
 </html>
