@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Main Page</title>
+  </head>
+  <body>
+    <h1>Runners</h1>
+    <div class="wrapper">
+      {{#runner}}
+      <p>Name: <a href='views/details.mustache'>{{ name }}</p></a>
+      <p>Division:{{ division }}</p>
+      <p>Sponsor:{{ sponsor }}</p>
+      {{/runner}}
+    </div>
+
+  </body>
+</html>
