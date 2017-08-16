@@ -6,14 +6,23 @@
     <title>Main Page</title>
   </head>
   <body>
-    <h1>Runners</h1>
-    <div class="wrapper">
+    <header>
+      <h1>Runners</h1>
+    </header>
+    <div class="navigation">
+      <a href="/">Runners</a>
+      <a href="/addNew">Add Runner</a>
+    </div>
+    <div class="container">
       {{#runner}}
-      <p>Name: <a href='views/details.mustache'>{{ name }}</p></a>
-      <p>Division:{{ division }}</p>
-      <p>Sponsor:{{ sponsor }}</p>
+        <div class="runner-card">
+          <h2>Name: <a href='views/details.mustache'>{{ name }}</h2></a>
+          <div class="details">
+            <p>Division:{{ division }}</p>
+            <p>Sponsor:{{ sponsor }}</p>
+          </div>
+        </div>
       {{/runner}}
     </div>
-
   </body>
 </html>

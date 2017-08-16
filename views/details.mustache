@@ -2,14 +2,36 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
     <title>Runner detail</title>
   </head>
   <body>
-    <a href="/">Home</a>
-    {{#runner}}
-    <h1>Featuring {{name}}</h1>
-    <p>Division:{{division}}</p>
-    <p>Sponsor: {{sponsor}}</p>
-    {{/runner}}
+    <header>
+      <h1>Featuring {{name}}</h1>
+    </header>
+    <div class="navigation">
+      <a href="/">Runners</a>
+      <a href="/addNew">Add Runner</a>
+    </div>
+    <div class="profile">
+      <div id="stats">
+        <ul>
+          <li>
+            <span class="stats-label">Division:</span>
+            <span class="stats-content">{{division}}</span>
+          </li>
+          <li>
+            <span class="stats-label">Sponsor:</span>
+            <span class="stats-content">{{sponsor}}</span>
+          </li>
+        </ul>
+      </div>
+      <div id="story">
+        <div id="story-content">
+          <p>{{ name }} has ran multiple races and won numerous
+             trophies.</p>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
