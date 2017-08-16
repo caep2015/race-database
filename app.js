@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({
 
 app.engine('mustache', mustacheExpress());
 app.set('view engine', 'mustache');
-app.set('views', __dirname + './views');
+app.set('views','./views');
 
 app.get('/', (req, res, next) => { //res = response here
   db.query('SELECT * FROM runner', [], (err, results) => {
