@@ -33,12 +33,18 @@ app.get('/', (req, res, next) => { //res = response here
 });
 
 app.get('/addNew', (req, res) => {
-  res.render('add')
-})
+  res.render('addNew');
+});
 
 app.post('/addNew', (req, res, next) => {
-  db.query('INSERT INTO runner (name, sponsor, division) VALUES($1, $2, $3)'
-  [req.body.name, req.body.sponsor, req.body.division], (err, results) => {
+  let addNew =
+  `INSERT INTO runner (name, sponsor, division)
+  VALUES(
+    '${req.body.name}',
+    '${req.body.sponsor}',
+    '${req.body.division}'
+  )`;
+  db.query(addNew, (err)=> {
     if(err){
       return next(err);
     }
@@ -46,15 +52,15 @@ app.post('/addNew', (req, res, next) => {
   });
 });
 
-app.get('/:bib_id', (req, res, next) => {
-  console.log(req.params.bib_id);
-  const runnerId = parseInt(req.params.bib_id) -1;
-  db.query('SELECT * FROM runner', [], (err, results)=>{
+app.get('/:id', (req, res, next) => {
+  const id = req.params.id
+  db.query(`SELECT * FROM runner WHERE bib_id = ${id}`, (err, results)=>{
     if (err){
       return next(err);
     }
-    response.render('details', {
-      runner: results.rows[runnerId]});
+    res.render('details', {
+      runner: results.rows
+    });
   });
 });
 

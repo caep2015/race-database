@@ -14,24 +14,26 @@
       <a href="/addNew">Add Runner</a>
     </div>
     <div class="profile">
-      <div id="stats">
-        <ul>
-          <li>
-            <span class="stats-label">Division:</span>
-            <span class="stats-content">{{division}}</span>
-          </li>
-          <li>
-            <span class="stats-label">Sponsor:</span>
-            <span class="stats-content">{{sponsor}}</span>
-          </li>
-        </ul>
-      </div>
-      <div id="story">
-        <div id="story-content">
-          <p>{{ name }} has ran multiple races and won numerous
-             trophies.</p>
+      {{ #runner}}
+        <div id="stats">
+          <ul>
+            <li>
+              <span class="stats-label">Division:</span>
+              <span class="stats-content">{{division}}</span>
+            </li>
+            <li>
+              <span class="stats-label">Sponsor:</span>
+              <span class="stats-content">{{sponsor}}</span>
+            </li>
+          </ul>
         </div>
-      </div>
+        <div id="story">
+          <div id="story-content">
+            <p>{{ name }} has ran multiple races and won numerous
+             trophies.</p>
+           </div>
+         </div>
+      {{ /runners }}   
     </div>
   </body>
 </html>
