@@ -58,7 +58,7 @@ app.get('/:id', (req, res, next) => {
     if (err){
       return next(err);
     }
-    res.render('details', {
+    res.render('runner', {
       runner: results.rows
     });
   });
